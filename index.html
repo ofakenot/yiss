@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Fundo baseado no tom cinza claro/médio com degradê suave da imagem */
+            background: radial-gradient(circle at center, #e2e5e9 0%, #cbd0d6 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        /* Textura sutil para simular o grão da foto */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.15;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        /* Layout centralizado sem caixas ou bordas */
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        /* Espaço para a logo ampliada com efeito flutuante */
+        .logo-container {
+            margin-bottom: 2.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 150px;
+        }
+
+        .logo-container img {
+            /* Aumentado de 220px para 380px para dar destaque premium */
+            width: 100%;
+            max-width: 380px;
+            height: auto;
+            object-fit: contain;
+            animation: float 6s ease-in-out infinite;
+            /* Reflexo projetado suave por trás da logo */
+            filter: drop-shadow(0 10px 25px rgba(0,0,0,0.04));
+        }
+
+        /* Texto Coming Soon com Efeito Premium Metallic Shimmer */
+        .coming-soon-text {
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.75em;
+            margin-right: -0.75em; /* Mantém o alinhamento central milimetricamente perfeito */
+            
+            /* Mascara de gradê para criar o efeito de reflexo de luz metálico */
+            background: linear-gradient(
+                to right, 
+                rgba(44, 51, 56, 0.85) 0%, 
+                rgba(44, 51, 56, 0.85) 35%, 
+                rgba(255, 255, 255, 0.9) 50%, 
+                rgba(44, 51, 56, 0.85) 65%, 
+                rgba(44, 51, 56, 0.85) 100%
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            
+            /* Filtros de profundidade */
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.03));
+            animation: shimmer 4s ease-in-out infinite;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); } /* Flutuação ligeiramente mais ampla devido ao tamanho maior */
+        }
+
+        /* Animação que faz o feixe de luz passar pelas letras */
+        @keyframes shimmer {
+            0% {
+                background-position: 200% center;
+            }
+            100% {
+                background-position: -200% center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content-wrapper">
+        <div class="logo-container">
+            <img src="images/yiss-logo.png" alt="Logo">
+        </div>
+        
+        <h1 class="coming-soon-text">Coming Soon</h1>
+    </div>
+
+</body>
+</html>
